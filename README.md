@@ -19,7 +19,7 @@ The server and monitor must be running to gte the full game experience. However,
 
 ## Swapping the Bitstream (.bit / .hwh)
 
-Two bitstreams are included - neon is the most up-to-date:
+Two bitstreams are included - neon is the most up-to-date texture as well as physics:
 
 | Files | Description |
 |---|---|
