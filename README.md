@@ -26,7 +26,7 @@ scp -r ./* xilinx@<BOARD_IP>:/home/xilinx/jupyter_notebooks/<YOUR_DIR>/
 > ```python
 > OVERLAY_PATH = "/home/xilinx/jupyter_notebooks/<YOUR_DIR>/design_1_wrapper.bit"
 > ```
-> This repo uses `Final_project_test` by default — so if you keep that name, no changes needed.
+> We used `Final_project_test` by default : so if you keep that name, no changes needed.
 
 ---
 
