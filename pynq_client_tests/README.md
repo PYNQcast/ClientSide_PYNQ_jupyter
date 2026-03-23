@@ -1,14 +1,8 @@
 # PYNQ Client Tests
 
-Board-side latency benchmarking. Self-contained — copy the whole folder to the board:
-
-```bash
-scp -r jupyter_side/pynq_client_tests xilinx@<PYNQ_IP>:/home/xilinx/jupyter_notebooks/Final_project_test/
-```
-
 ## Quickstart
 
-Use the notebook **`UDP_RTT_Benchmark.ipynb`** — set params in cell 2, run all cells.
+Use the notebook **`UDP_RTT_Benchmark.ipynb`**: set params in cell 2, run all cells.
 
 Or from the terminal inside this folder (use `run_pynq_rtt.py` directly):
 
