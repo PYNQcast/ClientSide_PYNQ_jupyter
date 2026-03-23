@@ -95,3 +95,7 @@ Change `design_1_wrapper` to `design_1_wrapper_neon` (or vice versa).
 
 > [!NOTE]
 > The `.pem` file required for server access cannot be shared on GitHub — it may have been provided separately to the assessor.
+
+Video of launching
+https://github.com/user-attachments/assets/d9d6668d-6347-4ee8-a949-c491428b4846
+
