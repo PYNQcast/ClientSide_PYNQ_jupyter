@@ -10,7 +10,7 @@ at the root of this directory, with your credentials.
 
 ## Server / Monitor
 
-The server and monitor must be running for these notebooks to work. Launch them from the [ServerSide_PYNQ_Raycaster](https://github.com/Akendall47/ServerSide_PYNQ_Raycaster) repo at its root:
+The server and monitor must be running for these notebooks to work. Launch them from the [ServerSide_PYNQ_Raycaster](https://github.com/Akendall47/ServerSide_PYNQ_Raycaster) repo at its root provided you have server access - ie. the *.pem file for an IAM role) :
 
 ```bash
 ./pynq_dev.sh
