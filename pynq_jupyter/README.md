@@ -18,7 +18,7 @@ The server and monitor must be running for these notebooks to work. Launch them 
 
 ### Running Tests
 
-To run tests, launch the server/monitor from the `test_RTT` branch of the ServerSide repo instead.
+To run tests, launch the server/monitor from the `test_RTT` branch of the ServerSide repo instead - on the pynq board, cd into `pynq_client_tests¬ and run notebookes from there.
 
 ## Swapping the Bitstream (.bit / .hwh)
 
