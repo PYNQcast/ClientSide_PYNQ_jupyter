@@ -1,34 +1,22 @@
 #!/usr/bin/env python3
-# pynq client is just the new name for test_package_v4.py — PYNQ board client, derived from test_package_basic.py
+# PYNQ-Z1 raycaster client.
 #
-# Adds over basic:
-#   - Sprite BRAM: remote entities (other players/ghosts) + collectible bits
-#   - Auto mode: local board steering from authoritative server world snapshots
-#   - Anticheat-aware: FLAG_TAGGED triggers a spawn snap; FLAG_MATCH_END halts
-#     movement and sends heartbeats until next match.
-#   - PKT_BITS_INIT handled: bit positions cached, bitmask updated each tick.
-#   - PKT_NODE_MODE honoured: server can switch manual ↔ auto ↔ replay at runtime.
+# Modes:
+#   manual  — 100% local authority; buttons drive movement and collision.
+#   auto    — local board steering, server resync on tag / map-reset / large divergence.
+#   replay  — server-driven playback; buttons ignored, pose streamed from UDP.
+#   All modes write collision + sprite BRAM every tick.
 #
-# Design principle: manual mode = 100% local authority.
-#                   auto mode   = local board steering with server resync on
-#                                 tagged/map-reset/large divergence.
-#                   replay      = authoritative server-driven playback; buttons
-#                                 are ignored and pose is streamed from UDP.
-#                   Both modes  = local collision + BRAM writes every tick.
-#
-# Hardware note (design_1_wrapper.bit / design_1.hwh):
-#   ray_caster_0 uses COORD_FRAC_BITS=16 (Q6.16 fixed-point) and has both
-#   v_sprite_* and v_r_sprite_* port groups, confirming at least two sprite
-#   slots are active in the raycaster pipeline. All MAX_ENTITIES slots (up to 4)
-#   are written to BRAM; the hardware renders as many as its pipeline supports.
-#   axi_gpio_0 is 4-bit wide (C_GPIO_WIDTH=4), matching BTN_LEFT/RIGHT/FWD/BACK.
+# Hardware (design_1_wrapper.bit):
+#   ray_caster_0  Q6.16 fixed-point, ≥2 sprite slots (v_sprite_* + v_r_sprite_*),
+#                 up to MAX_ENTITIES (4) written to BRAM each tick.
+#   axi_gpio_0    4-bit (BTN_LEFT / RIGHT / FWD / BACK).
 #
 # Copy to board:
-#   scp jupyter_side/test_package_v4.py pynq_full/interfacing/protocol.py \
-#       xilinx@<PYNQ_IP>:/home/xilinx/jupyter_notebooks/Final_project_test/
+#   scp ./* xilinx@<PYNQ_IP>:/home/xilinx/jupyter_notebooks/Final_project_test/
 #
 # Run:
-#   python3 test_package_v4.py [--mode auto] [--username NAME] [--no-hw]
+#   python3 run_pynq.py [--mode auto] [--username NAME] [--no-hw]
 
 import argparse
 import errno

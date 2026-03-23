@@ -7,6 +7,31 @@
 
 Client-side code for the PYNQ-Z1 raycaster. Runs on the board, renders to HDMI, and connects to an EC2 game server for multiplayer logic.
 
+## Copying to the Board
+
+Clone or download this repo, then `scp` the contents to the board's Jupyter notebooks directory:
+
+```bash
+scp -r ./* xilinx@<BOARD_IP>:/home/xilinx/jupyter_notebooks/<YOUR_DIR>/
+```
+
+> [!TIP]
+> The default PYNQ password is `xilinx`. The target directory must exist on the board first — create it via SSH if needed:
+> ```bash
+> ssh xilinx@<BOARD_IP> "mkdir -p /home/xilinx/jupyter_notebooks/<YOUR_DIR>"
+> ```
+
+> [!IMPORTANT]
+> Whatever directory name you choose, update `OVERLAY_PATH` near the top of [run_pynq.py](run_pynq.py) to match:
+> ```python
+> OVERLAY_PATH = "/home/xilinx/jupyter_notebooks/<YOUR_DIR>/design_1_wrapper.bit"
+> ```
+> This repo uses `Final_project_test` by default — so if you keep that name, no changes needed.
+
+---
+
+## Running
+
 To spawn into the game environment and see output on HDMI, run:
 
 ```bash
